@@ -1,0 +1,97 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="keywords" content=" " />
+<meta name="description" content=" " />
+<title>Web03/11</title>
+</head>
+<body style="font-family:sans-serif">
+    <h1 align="center">加入會員</h1>
+    <!--表單(有檔案上傳需加enctype)-->
+    <form method="post" action="http://ycchen.im.ncnu.edu.tw/join.php" align="center" enctype="multipart/form-data">
+        <input type="hidden" name="class" value="silver" /> <!--會員層級隱藏-->
+        <!--maxlength:限制長度-->
+        UserName:<input type="text" name="uid" size="10" maxlength="10" id="uID" /> <br />
+        Password:<input type="password" name="pwd" /><br />
+        <!--文字框-->
+        <textarea name="cmt" cols="40" rows="5">Please gives comments here on our system and ...</textarea><br />
+        Sports: <!--checkbox:複選，name和value都不一樣 checked:預設選取-->
+            <input type="checkbox" name="base" value="s1" />Baseball 
+            <input type="checkbox" name="basket" value="s2" checked />Basketball 
+            <input type="checkbox" name="foot" value="s3" />Football<br />
+        Gender: <!--radio:單選，name一樣，value不一樣-->
+            <input type="radio" name="sex" value="F" />Female
+            <input type="radio" name="sex" value="M" />Male<br />
+        <!--選項，selected:預設，multiple:複選-->
+        Birth Year:
+        <select name="BYear">
+            <option>2000</option> <option>2001</option> <option>2002</option> <option>2003</option>
+            <option>2004</option> <option>2005</option> <option>2006</option> <option>2008</option>
+            <option>2009</option> <option>2010</option> <option>2011</option>
+        </select><br />
+        Birth Month:
+        <select name="BMonth">
+            <option>1月</option> <option>2月</option> <option>3月</option> <option>4月</option>
+            <option>5月</option> <option>6月</option> <option>8月</option> <option>9月</option>
+            <option>10月</option> <option>11月</option> <option>12月</option>
+        </select><br />
+        Birth Day:
+        <select name="BDay">
+            <option>1</option> <option>2</option> <option>3</option> <option>4</option>
+            <option>5</option> <option>6</option> <option>8</option> <option>9</option>
+            <option>10</option> <option>11</option> <option>12</option> <option>13</option>
+            <option>14</option> <option>15</option> <option>16</option> <option>18</option>
+            <option>19</option> <option>20</option> <option>21</option> <option>22</option>
+            <option>23</option> <option>24</option> <option>25</option> <option>26</option>
+            <option>28</option> <option>29</option> <option>30</option> <option>31</option>
+        </select><br />
+        <!--上傳檔案-->
+        Resume:<input type="file" name="bio" /><br />
+        <input type="submit" value="OK" /> <!--確認，value命名-->
+        <input type="reset" value="重新填寫" /> <!--重置-->
+        <input type="button" value="Press this button"> <!--無用-->
+        <input type="image" src="01.jpg" alt="a" />
+    </form>
+    <!--上右下左-->
+    <!--表格-->
+    <h1 align="center">表格</h1>
+    <table border="1" width="800" align="center" cellpadding="5"> <!--cellpadding:格子間距-->
+        <caption>Data</caption> <!--表格標題-->
+        <tr>
+            <th>Name</th> <!--欄位標題(置中)-->
+            <th>Mail</th>
+            <th>Telephone</th>
+        </tr>
+        <tr>
+            <td>kmklwm;cm.c</td> <!--欄位內容(置左)-->
+            <td>ykdjmekocl@gmail.com</td>
+            <td>09298347405</td>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="2">YdklG</td> <!--拿掉三個-->
+            <td>09029883409</td>
+        </tr>
+        <tr>
+            <td>09232937197</td>
+        </tr>
+        <tr> <!--合併找最左上的欄位，也要拿掉被合併的欄位-->
+            <td>kmwnfnflrls</td>
+            <td>kdjnwiksl@gmail.com</td>
+            <td rowspan="2">09123928474</td> <!--縱向合併-->
+        </tr>
+        <tr> <!--合併找最左上的欄位，也要拿掉被合併的欄位-->
+            <td colspan="2">Ysoldcw</td> <!--橫向合併-->
+        </tr>
+    </table>
+    <hr />
+    <!--target="_blank"開新視窗-->
+    <p><a target="wp" href="http://ycchen.im.ncnu.edu.tw/www2011/lab/">http://ycchen.im.ncnu.edu.tw/www2011/lab/</a></p>
+    <p><a target="wp" href="http://ycchen.im.ncnu.edu.tw/www2011/">http://ycchen.im.ncnu.edu.tw/www2011/</a></p>
+    <!--網頁裡面有網頁視窗-->
+    <iframe name="wp" src="http://ycchen.im.ncnu.edu.tw/www2011/" width="1200" height="1000"></iframe>
+</body>
+</html>
+<!--最後完成日期:2020年03月11日-->

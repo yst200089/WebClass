@@ -1,0 +1,117 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!--表格增加內容-->
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8" />
+   <title>JavaScript Examples</title>
+   <style type="text/css">
+      body {
+         background: linear-gradient(to right, indianred, rgba(205, 92, 92, 0.582), rgb(155, 69, 69));
+      }
+
+      #content {
+         background-color: ivory;
+         width: 800px;
+         margin: 20px auto;
+         padding: 20px;
+         border: 3px solid #ccc;
+      }
+
+      #sp1 {
+         color: crimson;
+      }
+
+      #tbl1 {
+         margin: 10px auto;
+         width: 600px;
+         border: 2px solid indianred;
+      }
+
+      #tbl1 tr {
+         height: 30px;
+      }
+
+      #tbl1 td {
+         border: 2px solid rosybrown;
+      }
+   </style>
+<!-- 
+1. 利用document.getElementById("")在程式中產生相對應之element。
+2. 利用element的innerHTML取得或設定網頁內容。
+3. 學習如何自訂function。
+4. 將function等相關程式移至外部檔案func.js，再設定<script ... src="func.js">予以引用。
+5. 學習Date()物件之使用，在網頁中顯示今天日期，並利用array技巧，將星期數字轉為中文。
+   http://ycchen.im.ncnu.edu.tw/www2011/lab/date.html
+6. 學習如何設定事件及處理函式。
+7. 學習如何取得表單元件內容。
+-->
+   <script type="text/javascript" src="myfunction.js">
+   // 呼叫其他檔案的函數
+   </script>
+   <script type="text/javascript">
+      // .innerHTML=... 加入...
+      var win;
+      window.onload = function () { // 這條finction為事件處理函數
+         // 標題改成
+         // document.getElementById("hh1").innerHTML = "Hello World!"; // 同下
+         // $("hh1").innerHTML = "Hello World!!!"; // 呼叫函數並執行
+         // $("tbl1").innerHTML=""; // 清空table原本內容
+         // insertRow($("tbl1"), "Fred", 43, "Nantou", "M");
+         // insertRow($("tbl1"), "Mary", 13, "New York", "W");
+         // insertRow($("tbl1"), "John", 53, "Japen", "M");
+         // insertRow($("tbl1"), "Jessica", 28, "China", "W");
+
+         //document.getElementById("btn1").onclick = show;
+
+         win = window.open("http://ycchen.im.ncnu.edu.tw/www2011/lab/", "yccWin", "width=800,height=600,top=100,right=40,location=no");
+         document.getElementById("btn1").onclick = closeWin;
+      }
+      function closeWin() {
+         win.close();
+      }
+      function show() {
+         // 使用者輸入
+         var uid = prompt("This is test system.\nWhat's your name?");
+         document.getElementById("hh1").innerHTML = uid;
+         //window.alert("You click me!");
+         // 選擇對話框
+         // var isOK = window.confirm("你確定嗎？");
+         // if (isOK) {
+         //    document.getElementById("hh1").innerHTML="Yes!";
+         // } else {
+         //    document.getElementById("hh1").innerHTML="No!";
+         // }
+      }
+   </script>
+</head>
+
+<body>
+   <div id="content">
+      <h1 id="hh1">Heading 1</h1>
+      <p id="p1">There is a <span id="sp1">span</span> and a paragraph here.</p>
+      <table id="tbl1">
+         <caption>Table Caption</caption>
+         <tr>
+            <td><a href="https://www.ncnu.edu.tw/ncnuweb/" target="yccWin">NCNU</a> </td>
+            <td> </td>
+         </tr>
+         <tr>
+            <td> </td>
+            <td> </td>
+         </tr>
+      </table>
+      <br />
+      <form id="f1" method="post" action="http://ycchen.im.ncnu.edu.tw/join.php">
+         <input type="text" id="txt1" name="txt1">
+         <input type="submit">
+         <input type="reset"><br /><br />
+      </form>
+      <button id="btn1">Button 1</button>
+   </div>
+</body>
+
+</html>
+<!--最後完成日期:2020年04月27日-->

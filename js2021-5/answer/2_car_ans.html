@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>event</title>
+<style type="text/css">
+.car {
+position: absolute;
+}
+</style>
+<script type="text/javascript">
+var w=window.innerWidth;
+var h=window.innerHeight;
+var car;
+window.onload=function() {
+  car = document.getElementById("car1");
+  car.style.top=0.5*(h-car.height)+"px";
+  car.style.left=(w-car.width)+"px";
+  car.onclick=start;
+}
+function start() {
+   this.onclick=null;
+   move();
+}
+function move() {
+   var lft=parseInt(car.style.left);
+   lft-=10;
+   if (lft+car.width<0)
+     lft=w;
+   car.style.left=lft+"px";
+   window.setTimeout("move()", "10");
+}
+</script> 
+</head>
+<body>
+<div id="cont">
+<img id="car1" src="car.png" class="car" />
+</div>
+</body>
+</html>

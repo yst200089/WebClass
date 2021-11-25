@@ -1,0 +1,68 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!--九九乘法表-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body{
+    font-family: Arial;
+}
+#cont {
+    width: 900px;
+    margin:50px auto;
+}
+table {
+    width: 880px;
+    border: 2px double rgb(139, 61, 61);
+}
+th, td {border: 1px solid rgb(139, 61, 61)}
+th {
+    text-align:center; 
+    font-size:20pt;
+    background-color:indianred;
+    color: white
+}
+td {padding-left:1em;}
+.odd { /**/
+    background-color:rgba(219, 101, 101, 0.616);
+}
+/*表格標題*/
+caption {
+    color:darkred;
+}
+</style>
+<script type="text/javascript" src="myfunction.js"></script>
+<script type="text/javascript">
+    window.onload=function() {
+    var str = "<table><caption>九九乘法表</caption>";
+    str += "<tr>";
+    for (let i = 2; i <= 9; i++) {
+        str += "<th>" + i +"</th>";
+    }
+    str += "</tr>";
+    // 表格內容
+    str += "<tr>";
+    for (let i = 2; i <= 9; i++) {
+        if (i % 2 == 1)
+            str += "<td class=\"odd\">"; // 加上顏色
+            //str += '<td class="odd">'; // 同上
+        else
+        str += "<td>";
+        for (let j = 1; j <= 9; j++) {
+            str += i + " × " + j + " = " + i * j +"<br/>";
+        }
+        str += "</td>";
+    }
+    str += "</tr>";
+    str += "</table>"
+    $("cont").innerHTML = str;
+};
+</script>
+<body>
+<div id="cont">
+</div>
+</body>
+</html>
+<!--最後完成日期:2020年04月27日-->

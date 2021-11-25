@@ -1,0 +1,81 @@
+body {
+    font-family: Arial;
+    background-image: url("../萬年曆/大理石.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: darkred;
+    text-shadow: 10px 10px 10px rgb(226, 159, 159);
+}
+p {
+    font-size: 18px;
+}
+#calendar {
+    position: absolute;
+    top: 130px;
+    left: 100px;
+}
+#search {
+    color: ivory;
+    background-color: rgba(205, 92, 92);
+    border: 2px solid #ccc;
+    padding: 20px;
+    position: absolute;
+    top: 150px;
+    right: 120px;
+    box-shadow: 3px 3px 5px 6px #969696;
+}
+#t1 {
+    margin: 10px auto;
+    border: 2px solid rgb(94, 94, 94);
+    background-color: rgba(255, 255, 255, 0.623);
+}
+#t1 tr {
+    height: 40px;
+}
+#t1 th {
+    border: 2px solid rosybrown;
+    width: 100px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(187, 91, 91);
+}
+#t1 td {
+    border: 2px solid rgb(226, 159, 159);
+    color: maroon;
+    font-size: 18px;
+}
+#today {
+    background-color:lightsalmon;
+    font-size: 22px;
+    font-weight: bold;
+    font-style: oblique;
+}
+#sear {
+    background-color:rgb(175, 175, 214);
+    font-size: 22px;
+    font-weight: bold;
+    font-style: oblique;
+}
+.poin {
+    cursor: pointer;
+    cursor: hand;
+}
+legend {
+    font-size: 20px;
+    font-weight: bold;
+}
+input {
+    padding: 5px 15px;
+    border: 2px indianred gainsboro;
+    -webkit-border-radius: 6px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#button {
+    text-align: right;
+}

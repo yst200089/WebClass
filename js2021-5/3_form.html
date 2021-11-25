@@ -1,0 +1,121 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!-- 表單選項 -->
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>form check</title>
+    <style type="text/css">
+        body {
+            width: 600px;
+            margin: 10px auto;
+            font-family: Arial;
+        }
+
+        #content {
+            color: ivory;
+            background-color: DarkOliveGreen;
+            border: 2px solid #ccc;
+            padding: 20px
+        }
+
+        table {
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            width: 400px;
+        }
+
+        td {
+            text-align: right;
+            padding: 5px 10px
+        }
+
+        td+td {
+            text-align: left
+        }
+    </style>
+    <script type="text/javascript">
+        var arrArea = new Array();
+        arrArea["台灣"] = new Array("台北", "台中", "台南", "高雄");
+        arrArea["日本"] = new Array("東京", "大阪", "京都", "福岡", "札幌");
+        arrArea["東南亞"] = new Array("雅加達", "吉隆坡", "檳城", "新加坡", "曼谷", "河內", "胡志明市");
+        window.onload = function () {
+            areaInit(); // 初始化
+            cityInit();
+            $("area").onchange = cityInit;
+        };
+        // 移出之前選項
+        function clearCity() {
+            var numOpt = $("city").options.length;
+            for (let i = 0; i < numOpt; i++) {
+                $("city").remove(0); // 每次都從0開始
+            }
+        }
+        function $(id) {
+            return document.getElementById(id);
+        }
+        // 國家
+        function areaInit() {
+            var area = $("area");
+            // area.add(opt);
+            for (let ar in arrArea) { // 新增 arrArea 選項
+                var opt = new Option();
+                opt.text = ar;
+                area.add(opt);
+            }
+            area.selectedIndex = 0; // 設預設為第0個選項
+        }
+        // 城市
+        function cityInit() {
+            clearCity();
+            var areaSel = $("area").options[$("area").selectedIndex].text;
+            // arrArea[areaSel]
+            for (let i = 0; i < arrArea[areaSel].length; i++) { // 新增 arrArea 選項
+                var opt = new Option();
+                opt.text = arrArea[areaSel][i];
+                $("city").add(opt);
+            }
+            $("city").selectedIndex = 0;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="content">
+        <form id="f1" name="f1" method="post" action="http://ycchen.im.ncnu.edu.tw/join.php">
+            <table>
+                <tr>
+                    <td>E-mail:</td>
+                    <td><input type="text" id="email" name="email" /></td>
+                </tr>
+                <tr>
+                    <td>密碼:</td>
+                    <td><input type="password" id="pwd1" name="pwd" /></td>
+                </tr>
+                <tr>
+                    <td>密碼確認:</td>
+                    <td><input type="password" id="pwd2" /></td>
+                </tr>
+                <tr>
+                    <td>年齡:</td>
+                    <td><input type="text" name="age" size="4" /></td>
+                </tr>
+                <tr>
+                    <td>服務據點:</td>
+                    <td>
+                        區域: <select id="area" name="area"></select>
+                        城市: <select id="city" name="city"></select></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center"><input type="submit" /> <input type="reset" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
+<!--最後完成日期:2021年05月18日-->

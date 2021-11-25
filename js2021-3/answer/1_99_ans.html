@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+#cont {
+width: 900px;
+margin:50px auto;
+}
+table {
+width: 880px;
+border: 2px double Green;
+}
+th, td {border: 1px solid darkgreen}
+th {text-align:center; 
+font-size:20pt;
+background-color: black;
+color: white} 
+td {padding-left:1em;}
+.odd {
+background-color: YellowGreen;
+}
+</style>
+<script type="text/javascript">
+window.onload = function() {
+var tblStr = "<table><caption>九九乘法表</caption>";
+tblStr += "<tr>";
+for (var i=2;i<10;i++) {
+   tblStr += "<th>"+i+"</th>";
+}
+tblStr += "</tr>";
+tblStr += "<tr>";
+for (i=2;i<10;i++) {
+	if ((i%2)==1)
+	   tblStr += '<td class="odd">';
+	else
+	   tblStr += "<td>";
+	for (var j=1;j<10;j++) {
+	  tblStr += i +" * " + j +" = "+i*j+"<br/>";
+	}
+	tblStr += "</td>";
+}
+tblStr += "</tr>";
+tblStr += "</table>";
+document.getElementById("cont").innerHTML=tblStr;
+};
+</script>
+<body>
+<div id="cont">
+</div>
+</body>
+</html>

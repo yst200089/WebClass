@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>檔案說明</title>
+    <style type="text/css">
+        body {
+            background: #c09f80;
+            font-family: Arial;
+            font-size: 19px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #76323F;
+            background-color: cornsilk;
+        }
+
+        h2 {
+            text-align: right;
+            color:#76323F;
+            background-color: #d7cec7;
+        }
+
+        div {
+            padding: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color:#76323F;
+        }
+
+        button {
+            position: absolute;
+            top: 30px;
+            padding: 5px 15px;
+            border: 2px indianred gainsboro;
+            -webkit-border-radius: 6px;
+            border-radius: 5px;
+            font-size: 20px;
+            color:#76323F;
+        }
+
+        table {
+            position: relative;
+            background-color: cornsilk;
+            margin: auto;
+            top: 10px;
+            border: 2px;
+            width: 80%;
+            font-size: 20px;
+        }
+
+        th {
+            border: 2px solid #062f4f;
+            width: 400px;
+            color: #062f4f;
+        }
+
+        td {
+            border: 2px solid #76323F;
+            /* width: auto; */
+            color: #062f4f;
+            /* text-align: center; */
+        }
+
+        #c {
+            text-align: center;
+        }
+
+        #num {
+            width: 35px;
+        }
+
+        #name {
+            width: 200px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+        };
+    </script>
+</head>
+
+<body>
+    <h1>檔案說明</h1>
+    <div>
+            <table>
+            <tr>
+                <th id="num">執行順序</th>
+                <th id="name">檔案名稱</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td id="c">0</td>
+                <td>menber.php</td>
+                <td>讀取menber.txt（儲存用戶帳號及密碼）並儲存。</td>
+            </tr>
+            <tr>
+                <td id="c">1</td>
+                <td>login_inc.php</td>
+                <td>用戶登入頁面。</td>
+            </tr>
+            <tr>
+                <td id="c">2</td>
+                <td>login_check.php</td>
+                <td>檢查用戶輸入帳密是否正確，若正確則出現用戶資料連結頁面。</td>
+            </tr>
+            <tr>
+                <td id="c">3</td>
+                <td>login_w.php</td>
+                <td>若用戶輸入錯誤，則重新輸入。</td>
+            </tr>
+            <tr>
+                <td id="c">4</td>
+                <td>menberdata.php</td>
+                <td>用戶資料頁面，顯示用戶帳號及會員等級，可在此頁面選擇購物或登出。</td>
+            </tr>
+            <tr>
+                <td id="c">5</td>
+                <td>product.php</td>
+                <td>儲存商品圖片、名稱、描述及價格。</td>
+            </tr>
+            <tr>
+                <td id="c">6</td>
+                <td>shopping.php</td>
+                <td>購物頁面，將商品放入購物車。</td>
+            </tr>
+            <tr>
+                <td id="c">7</td>
+                <td>showCart.php</td>
+                <td>顯示使用者的購物車頁面，可調整商品數量，點選結帳到結帳頁面。</td>
+            </tr>
+            <tr>
+                <td id="c">8</td>
+                <td>Checkout.php</td>
+                <td>顯示訂購明細，結帳後購物商品清空。</td>
+            </tr>
+            <tr>
+                <th colspan="3">折扣說明</th>
+            </tr>
+            <tr>
+                <td colspan="2">VIP</td>
+                <td>打9折</td>
+            </tr>
+            <tr>
+                <td colspan="2">Gold</td>
+                <td>打95折</td>
+            </tr>
+            <tr>
+                <td colspan="2">Guest</td>
+                <td>折100元</td>
+            </tr>
+            <tr>
+                <td colspan="2">商品數量</td>
+                <td>滿10件折500</td>
+            </tr>
+            <tr>
+                <td colspan="2">總金額</td>
+                <td>滿20,000折2000</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

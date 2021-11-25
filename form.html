@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>網頁標題</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<form name="f1" method="post" action="join.php"> <!-- 傳到join.php -->
+<!-- method="post" 若輸入為空，回傳空值 -->
+E-mail: <input type="text" name="email" /><br />
+Password: <input type="password" name="pw"><br />
+Age: <input type="text" name="age" size="4"><br/>
+<!-- 寫法一-傳出true or false -->
+<!-- Members: 
+<input type="checkbox" name="yahoo" value="true" />Yahoo!
+<input type="checkbox" name="google" value="true" />Google
+<input type="checkbox" name="youtube" value="true" />Youtube -->
+
+<!-- 寫法二-傳出陣列 -->
+Members: 
+<input type="checkbox" name="member[]" value="yahoo" />Yahoo!
+<input type="checkbox" name="member[]" value="google" />Google
+<input type="checkbox" name="member[]" value="youtube" />Youtube <br />
+公私立:
+<input type="radio" name="P" value="2" checked="checked" />全部
+<input type="radio" name="P" value="0" />公立
+<input type="radio" name="P" value="1" />私立 <br />
+<input type="submit" /> <input type="reset" /> 
+</form> 
+</body>
+</html>

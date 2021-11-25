@@ -1,0 +1,122 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!--抽出隨機不重複的撲克牌-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>隨機發放撲克牌</title>
+    <style type="text/css">
+    body {
+        font-family: Arial;
+        background-color: indianred;
+    }
+    #cardPool {
+        display: none;
+        margin: 10px auto;
+    }
+    input {
+    padding: 5px 15px;
+    border: 2px indianred gainsboro;
+    -webkit-border-radius: 6px;
+    border-radius: 5px;
+    font-size: 17px;
+    }
+    #container {
+        background-color: whitesmoke;
+        margin: 20px auto;
+        text-align: center;
+        left: 300px;
+        width: 1000px;
+    }
+    #content {
+      font-size: 36pt;
+      font-weight: bolder;
+      color: red;
+      text-align: center;
+    }
+    img {
+      margin: 10px;
+      vertical-align: top;
+      width: 150px;
+      height: 230px;
+      /* position: relative; */
+    }
+    #cardPool {
+        display: block;
+    }
+    </style>
+
+    <script type="text/javascript">
+    var data = new Array();
+    var cardArr = new Array();
+    var MyCards = new Array();
+    var ans = "";
+    var Suit = ["S", "H", "D", "C"];
+    var number = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10" , "J", "Q", "K"];
+    window.onload = function () {
+        for (var i=0;i<5;i++) {
+            cardArr[i] = document.getElementById(i);
+        }
+        Create();
+        reset.onclick = Create;
+    }
+    function Create() {
+        var num;
+        for (var i=0; i<5; i++){
+            num = MyRandom(0, 51);
+            if (Check(num) == true) {
+                data[i] = num;
+                ans += num + " ";
+            } else {
+                i--;
+            }
+        }
+        if (data.length == 5) {
+            FindCards(data);
+        }
+    }
+    function FindCards(data) {
+        for (var i=0; i < data.length; i++) {
+            var photo = "";
+            var s = parseInt(data[i] / 13);
+            var n = data[i] % 13;
+            MyCards[i] = number[n] + Suit[s] + ".png";
+            cardArr[i].src = MyCards[i];
+        }
+    }
+    function MyRandom(a, b) {
+      return Math.floor(a + Math.random() * (b - a + 1));
+    }
+    function Check(num) {
+        var c = true;
+        for (var i=0; i < data.length; i++) {
+            if (num == data[i]) {
+                c = false;
+            }
+        }
+        return c;
+    }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <h1 id="hh1">隨機發放五張撲克牌</h1>
+        <div id="content"></div>
+        <div id="cardPool">
+            <script type="text/javascript">
+            for (var i=0;i<5;i++)
+              document.write("<img id=\""+i+"\" src=\"\" />");
+            </script>
+        </div>
+        <div id="button">
+            <input type="reset" id="reset" style="font-size: 18px" />
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!--最後完成日期:2021年05月15日-->

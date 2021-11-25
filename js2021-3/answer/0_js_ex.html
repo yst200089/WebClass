@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>JavaScript Examples</title>
+<style type="text/css">
+body {
+background: linear-gradient(to right, #000, #030, #000);
+}
+#content {
+background-color: ivory;
+width: 800px;
+margin: 20px auto;
+padding: 20px;
+border: 3px solid #ccc;
+}
+#sp1 {
+color: DarkGreen;
+}
+#tbl1 {
+margin: 10px auto;
+width: 600px;
+border: 2px solid orange;
+}
+#tbl1 tr {
+height: 30px;
+}
+#tbl1 td {
+border: 2px solid green;
+}
+</style>
+<!-- 
+1. 利用document.getElementById("")在程式中產生相對應之element。
+2. 利用element的innerHTML取得或設定網頁內容。
+3. 學習如何自訂function。
+4. 將function等相關程式移至外部檔案func.js，再設定<script ... src="func.js">予以引用。
+5. 學習Date()物件之使用，在網頁中顯示今天日期，並利用array技巧，將星期數字轉為中文。
+6. 學習如何設定事件及處理函式。
+7. 學習如何取得表單元件內容。
+-->
+<!-- <script type="text/javascript" src="xx.js"></script> -->
+<script type="text/javascript">
+
+window.onload = () => {
+   var h1=document.getElementById("hh1");
+   console.log(h1.innerHTML);
+   h1.innerHTML="Hello World!";
+   $("sp1").innerHTML=h1.innerHTML;
+   clear($("tbl1"));
+   //var row = insertRow(56,78,99);
+   insertRow($("tbl1"), 67, 98,67);
+   insertRow($("tbl1"), 65, 32,77);
+   insertRow($("tbl1"), 34, 21,53);
+   
+}
+function $(id) {
+   return document.getElementById(id);
+}
+function insertRow(table) {
+  let str="<tr>";
+  for (let i=1;i<arguments.length;i++) {
+     str += "<td>"+arguments[i]+"</td>";
+  }
+  str += "</tr>";
+  table.innerHTML += str;
+}
+function clear(ele) {
+   ele.innerHTML="";
+}
+</script>
+</head>
+<body>
+<div id="content">
+<h1 id="hh1">Heading 1</h1>
+<p id="p1" >There is a <span id="sp1">span</span> and a paragraph here.</p>
+<table id="tbl1">
+<caption>Table Caption</caption>
+<tr><td> </td><td> </td></tr>
+<tr><td> </td><td> </td></tr>
+</table>
+<br/>
+<form id="f1" method="post" action="http://ycchen.im.ncnu.edu.tw/join.php">
+<input type="text" id="txt1" name="txt1">
+<input type="submit"> 
+<input type="reset"><br/><br/>
+</form>
+<button id="btn1">Button 1</button>
+</div>
+</body>
+</html>

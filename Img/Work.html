@@ -1,0 +1,77 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>自製對話框</title>
+<style type="text/css">
+body {
+    font-family: Arial;
+    text-align: center;
+}
+#But {
+    text-align:center;
+}
+h1 {
+    background-color:darkgray;
+    color: white;
+    text-align:center;
+}
+img {
+    /* position: absolute; */
+    width: 750px;
+    height: 500px;
+    margin: 50px auto;
+}
+#Div {
+    background-color:lightgrey;
+    width: 900px;
+    height: 600px;
+    margin: 10px auto;
+    display: none;
+    position: relative;
+}
+input {
+    padding: 5px 15px;
+    border: 2px indianred gainsboro;
+    -webkit-border-radius: 6px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+</style>
+<script type="text/javascript">
+var w = window.innerWidth;
+var h = window.innerHeight;
+var photo = $("photo");
+window.onload=function() {
+    var x = "瀏覽器 : "+ navigator.platform;
+    $("platform").innerHTML = x;
+    $("display").onclick=Display;
+    $("hide").onclick=Hide;
+};
+function Display() {
+    var x = w/2 - photo/2;
+    $("Div").style="display:block";
+}
+function Hide(){
+    $("Div").style="display:none";
+}
+function $(id) {
+    return document.getElementById(id);
+}
+
+</script>
+</head>
+<body>
+    <h1 id="platform"></h1>
+    <div id="But">
+        <input type="button" id="display" value="顯示" style="font-size: 18px" />
+        <input type="button" id="hide" value="隱藏" style="font-size: 18px" />
+    </div>
+    <div id="Div">
+        <img id="photo" src="img2.jpg" />
+    </div>
+</body>
+</html>
+<!--最後完成日期:2021年05月26日-->

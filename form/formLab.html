@@ -1,0 +1,91 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+#main {
+  width: 900px;
+  margin: 0px auto;
+  line-height: 28pt;
+  font-size: 16pt;
+}
+legend {
+  font-weight: bold;
+  color: red;
+}
+select, button {
+  vertical-align:middle;
+  font-size: 14pt;
+  font-family: times new roman;
+}
+input[type=submit],input[type=reset],input[type=button],input[type=image],button {
+  font-family: times new roman;
+  font-size:14pt;
+  vertical-align:middle;
+}
+h2 {
+  text-align:center;
+color:darkgreen;
+}
+</style>
+<title>表單</title>
+</head>
+<body>
+<div id="main">
+<h2>HTML5 Form Elements</h2>
+<form action="http://ycchen.im.ncnu.edu.tw/join.php" method="post">
+
+<hr />
+<fieldset>
+  <legend>Basic Info</legend> <!--標出外框的主題-->
+  <!--placeholder:輸入提示-->
+  User Name: <input placeholder="Your ID" type="text" id="uid" name="uid" size="10" maxlength="20" /><br/>
+  Password: <!--required:必須填-->
+   <input type="password" id="pwd" name="pwd" required size="12" maxlength="20" /><br/>
+  Comments: <br/><textarea  id="cmts" name="cmts" cols="40" rows="5"></textarea> <br/>
+  Members: <input type="checkbox" id="yahoo" name="yahoo" value="yahoo" /> Yahoo!
+   <input type="checkbox" id="google" name="google" value="google" checked /> Google <!--checked:預設-->
+   <input type="checkbox" id="youtube" name="youtube" value="youtube" /> Youtube<br/>
+  Payment: <!--label:按字即可選-->
+    <label><input type="radio" id="pay" name="pay" value="Visa" checked /> Visa</label>
+    <label><input type="radio" id="pay" name="pay" value="Master" /> Master</label>
+      <label><input type="radio" id="pay" name="pay" value="JCB" /> JCB <br/></label>
+Month:
+  <select name="month">
+   <option>Jan.</option> <option>Feb.</option>
+   <option selected>Mar.</option> <!--selected:預設--> <option>Apr.</option>
+  </select><br/>
+  Birth Year: 
+    <select name="BYear">
+      <option selected>2000</option> <option>2001</option> <option>2002</option> <option>2003</option>
+      <option>2004</option> <option>2005</option> <option>2006</option> <option>2008</option>
+     <option>2009</option> <option>2010</option> <option>2011</option>
+    </select><br />
+</fieldset>
+<hr />
+<!--list:既是清單亦是文字方塊-->
+Datalist: <input list="browList" name="browser"> <br />
+  <datalist id="browList">
+    <option value="Internet Explorer" >
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist> 
+<!--type="email"要求一定要＠-->
+E-mail: <input name="email" type="email"> <br/>
+<!--type="number" step="10":往上下加減10-->
+Number/step: <input name="points" type="number" step="10"> <br/>
+<!--顯示日曆-->
+Date: <input type="date" name="dte" /> <br/>
+<!--type="color":顯示顏色表-->
+Color: <input name="clr" value="#00ffff" type="color"/> <br/>
+<hr />
+<input type="submit" value="OK"/> <input type="reset" value="重置" />
+</form>
+</div>
+</body>
+</html>
+<!--最後完成日期:2020年03月23日-->

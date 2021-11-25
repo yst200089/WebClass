@@ -1,0 +1,178 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!--你競速遊戲-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>迷你競速遊戲</title>
+<style type="text/css">
+body {
+    font-family: Arial;
+    text-align: center;
+}
+input {
+    position: absolute;
+    padding: 5px 15px;
+    border: 2px indianred gainsboro;
+    -webkit-border-radius: 6px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#start {
+    top: 510px;
+    right: 150px;
+}
+#reset {
+    top: 510px;
+    right: 10px;
+}
+.car {
+    position: absolute;
+}
+p {
+    font-size: 20px;
+    padding: 2px;
+}
+#Rank {
+    color: ivory;
+    background-color: rgba(205, 92, 92);
+    border: 2px solid #ccc;
+    position: absolute;
+    padding-left: 16px;
+    width: 400px;
+    height: 240px;
+    right: 10%;
+    top: 15%;
+    box-shadow: 3px 3px 5px 6px #969696;
+    display: none;
+}
+</style>
+<script type="text/javascript">
+var w = window.innerWidth;
+var cars = document.getElementsByClassName("car");
+var p = document.getElementsByTagName("p");
+var count;
+var rank = new Array();
+var data = new Array();
+window.onload=function() {
+    clear();
+    start.onclick = run;
+    reset.onclick = clear;
+    // show();
+};
+function clear() {
+    count = 0;
+    $("Rank").style = "display:none"
+    rank = new Array();
+    data = new Array();
+    for (var i=0; i<cars.length; i++) {
+        cars[i].style.left = (w-cars[i].width) + "px";
+        if (i == 0) {
+            cars[i].style.top = "70px";
+        }
+        else if(i == 1) {
+            cars[i].style.top = "230px";
+        }
+        else {
+            cars[i].style.top = "380px";
+        }
+    }
+}
+function Check(num) {
+    var c = true;
+    for (var i=0; i < data.length; i++) {
+        if (num == data[i]) {
+            c = false;
+        }
+    }
+    return c;
+}
+function MyRandom(a, b) {
+    return Math.floor(a + Math.random() * (b - a + 1));
+}
+function run() {
+    clear();
+    for (var i=0; i<3; i++){
+        num = MyRandom(1, 3);
+        if (Check(num) == true) {
+            data[i] = num;
+        } else {
+            i--;
+        }
+    }
+    // $("hh2").innerHTML = count;
+    run1();
+    run2();
+    run3();
+}
+function run1(i) {
+    // $("hh2").innerHTML = i;
+    var lft1 = parseInt(cars[0].style.left);// 取得現在位置
+    lft1 -= data[0]*10;
+    cars[0].style.left = lft1 + "px";
+    if (lft1 >= 40) {
+        window.setTimeout("run1()", 10);
+    } else {
+        rank[count] = "Red Car";
+        p[count].innerHTML = "No."+(count+1)+"&nbsp&nbsp&nbsp&nbsp&nbsp"+rank[count];
+        count++;
+        if (count == 3) {
+            $("Rank").style = "display:block";
+        }
+    }
+}
+function run2(i) {
+    var lft2 = parseInt(cars[1].style.left);
+    lft2 -= data[1]*10;
+    cars[1].style.left = lft2 + "px";
+    if (lft2 >= 30) {
+        window.setTimeout("run2()", 10);
+    } else {
+        rank[count] = "Green Car";
+        p[count].innerHTML = "No."+(count+1)+"&nbsp&nbsp&nbsp&nbsp"+rank[count];
+        count++;
+        if (count == 3) {
+            $("Rank").style = "display:block";
+        }
+    }
+}
+function run3(i) {
+    var lft3 = parseInt(cars[2].style.left);
+    lft3 -= data[2]*10;
+    cars[2].style.left = lft3 + "px";
+    if (lft3 >= 50 ) {
+        window.setTimeout("run3()", 10);
+    }else {
+        rank[count] = "Yellow Car";
+        p[count].innerHTML = "No."+(count+1)+"&nbsp&nbsp&nbsp&nbsp"+rank[count];
+        count++;
+        if (count == 3) {
+            $("Rank").style = "display:block";
+        }
+    }
+}
+function $(id) {
+    return document.getElementById(id);
+}
+
+</script>
+</head>
+<body>
+    <img src="背景.jpg" width=100% height=500px />
+    <img id="Red" src="Red.png" class="car" width=150px />
+    <img id="Green" src="Green.png" class="car" width=150px />
+    <img id="Yellow" src="Yellow.png" class="car" width=140px />
+    <img src="1.jpg" width=100% />
+    <input type="button" id="start" value="開始遊戲" style="font-size: 18px" />
+    <input type="button" id="reset" value="再玩一次" style="font-size: 18px" />
+    <div id="Rank">
+        <h2 id="hh2">排名</h2>
+        <hr width=350px />
+        <p id="one"></p>
+        <p id="two"></p>
+        <p id="three"></p>
+    </div>
+</body>
+</html>
+<!--最後完成日期:2021年05月29日-->

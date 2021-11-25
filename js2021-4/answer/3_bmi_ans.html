@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>網頁標題</title>
+<style type="text/css">
+body {width: 600px; margin:10px auto}
+#content {color:ivory; background-color:DarkOliveGreen; border:2px solid #ccc; padding:20px}
+table {margin: 10px auto; border: 1px solid #ccc; width:400px;}
+td {text-align:right; padding:5px 10px}
+td+td {text-align: left}
+#grade {
+  margin:40px auto;
+}
+#grade li {
+display:inline-block;
+width: 120px;
+text-align:center;
+padding:5px 0px;
+background-color: #999;
+}
+#g1 {
+border-bottom: 10px solid #66f;
+}
+#g2 {
+border-bottom: 10px solid #6f6;
+}
+#g3 {
+border-bottom: 10px solid yellow;
+}
+#g4 {
+border-bottom: 10px solid orange;
+}
+.sel {
+background-color: white !important;
+color:red;
+font-weight: bold;
+border-radius:30px;
+}
+#bmi {
+color:red;
+font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+window.onload = function() {
+   document.getElementById("calBtn").onclick = cal;
+   document.f1.onreset=clr;
+}
+function clr() {
+ for (var i=1;i<5;i++)
+	   //document.getElementById("g"+i).className="";
+	   document.getElementById("g"+i).classList.remove("sel");
+ document.getElementById("bmi").innerHTML="";   
+}
+function cal() {
+   var h = document.getElementById("hh").value;
+   var w = document.getElementById("ww").value;
+   //var bmi = Math.round(10*w /(h*h)*10000)/10;
+   var bmi = (w/(h*h)*10000).toFixed(1);
+   gde=1;
+   if (bmi>=27)  
+     gde=4;
+   else if (bmi>=24) 
+     gde = 3; 
+   else if (bmi>=18.5) 
+     gde = 2;
+   else 
+     gde=1;
+   clr();
+   //document.getElementById("g"+gde).className="sel";
+   document.getElementById("g"+gde).classList.add("sel");
+   document.getElementById("bmi").innerHTML=bmi;
+   
+}
+</script>
+</head>
+<body>
+<div id="content">
+<form name="f1">
+<table>
+<tr><td>身高(cm):</td><td><input type="text" id="hh" /></td></tr>
+<tr><td>體重(Kg):</td><td><input type="text" id="ww" /></td></tr>
+<tr><td>BMI:</td><td><span id="bmi"></span></tr>
+<tr><td colspan="2" style="text-align:center"><input type="button" id="calBtn" value="計算BMI" /> <input type="reset" /></td></tr>
+</table>
+</form>
+<ul id="grade">
+<li id="g1">體重過輕</li>
+<li id="g2">標準</li>
+<li id="g3">過重</li>
+<li id="g4">肥胖</li>
+</ul>
+</div>
+</body>
+</html>

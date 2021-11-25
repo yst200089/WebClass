@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>JavaScript Examples</title>
+<style type="text/css">
+body {
+background: linear-gradient(to right, #000, #030, #000);
+}
+#content {
+background-color: ivory;
+width: 800px;
+margin: 20px auto;
+padding: 20px;
+border: 3px solid #ccc;
+}
+#sp1 {
+color: DarkGreen;
+}
+#tbl1 {
+margin: 10px auto;
+width: 600px;
+border: 2px solid orange;
+}
+#tbl1 tr {
+height: 30px;
+}
+#tbl1 td {
+border: 2px solid green;
+}
+#menu {
+    list-style-type: none;
+}
+#menu > li {
+    display: inline; /* 橫向 */
+    position: relative;
+    cursor: pointer; /* 滑鼠型態改變 */
+}
+.menu2 {
+    list-style-type: none; /* 不要有前面黑點 */
+    display: none; /* 一開始先不顯示 */
+    position: absolute;
+    top: 22px;
+    left: -40px;
+}
+#menu > li:hover .menu2 { /*當滑鼠移到上方時*/
+    display: block; /* 顯示內容 */
+}
+</style>
+<script type="text/javascript">
+
+/*
+window.onload=function() {
+   // document.getElementById("").innerHTML="...";
+}
+*/
+
+</script>
+</head>
+<body>
+<div id="content">
+
+<ul id="menu">
+    <li>Portal
+        <ul class="menu2">
+            <li>Google</li>
+            <li>Safari</li>
+        </ul>
+    </li>
+    <li>AAA</li>
+    <li>BBB</li>
+</ul>
+
+<a href="view-source:js_ex.html">View Source</a>
+<h1 id="hh1">Heading 1</h1>
+<p id="p1" >There is a <span id="sp1">span</span> and a paragraph here.</p>
+<table id="tbl1">
+<caption>Table Caption</caption>
+<tr><td> </td><td> </td></tr>
+<tr><td> </td><td> </td></tr>
+</table>
+<br/>
+<form id="f1" method="post" action="http://ycchen.im.ncnu.edu.tw/join.php">
+<input type="text" id="txt1" name="txt1">
+<input type="submit"> 
+<input type="reset"><br/><br/>
+</form>
+<button id="btn1">Button 1</button>
+</div>
+</body>
+</html>
+

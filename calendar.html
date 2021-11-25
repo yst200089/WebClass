@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #calendar {
+            background-color: #9900ff;
+            color: #fff;
+            border-radius: 5px;
+            margin: 100px auto;
+        }
+
+        #title {
+            font-size: 1.4em;
+            padding: 4px 0.55em;
+        }
+
+        #days th {
+            font-weight: bold;
+            text-align: center;
+            padding: 4px 0.55em;
+        }
+
+        #calendar td {
+            text-align: center;
+            padding: 4px 20px;
+        }
+
+        #today {
+            color: #f00;
+            font-weight: bold;
+        }
+
+        .poin {
+            cursor: pointer;
+            cursor: hand;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var form = document.getElementById('calendar');
+            // 通過日曆物件去呼叫自身的init方法
+            calendar.init(form);
+        }
+        var calendar = {
+            year: null,
+            month: null,
+            //日的陣列
+            dayTable: null,
+            //初始化函數
+            init(form) {
+                // 1獲取日陣列
+                this.dayTable = form.getElementsByTagName('td');
+                //2建立日曆,傳入當前時間
+                this.createCalendar(form, new Date());
+                var nextMon = form.getElementsByTagName('th')[2];
+                var preMon = form.getElementsByTagName('th')[0];
+                preMon.onclick = function () {
+                    calendar.clearCalendar(form)
+                    var preDate = new Date(calendar.year, calendar.month - 1, 1);
+                    calendar.createCalendar(form, preDate)
+                }
+                nextMon.onclick = function () {
+                    calendar.clearCalendar(form)
+                    var nextDate = new Date(calendar.year, calendar.month + 1, 1);
+                    calendar.createCalendar(form, nextDate)
+                }
+            },
+            //清除日曆資料
+            clearCalendar(form) {
+                var tds = form.getElementsByTagName('td');
+                for (var i = 0; i < tds.length; i++) {
+                    tds[i].innerHTML = '&nbsp';
+                    // 清除今天的樣式
+                    tds[i].id = '';
+                }
+            },
+            // 3生成日曆
+            // from table表格  date要建立的日期
+            createCalendar(form, date) {
+                //獲取此時的年份
+                this.year = date.getFullYear();
+                //獲取此時的月份
+                this.month = date.getMonth();
+
+                //年份月份寫入日曆
+                form.getElementsByTagName('th')[1].innerHTML = this.year + "年" + (this.month + 1) + "月";
+                //獲取本月的天數
+                var dataNum = this.getDateLen(this.year, this.month);
+                var fristDay = this.getFristDay(calendar.year, calendar.month);
+                // 迴圈將每一天的天數寫入到日曆中
+                // 讓i表示日期。
+                for (var i = 1; i <= dataNum; i++) {
+                    this.dayTable[fristDay + i - 1].innerHTML = i;
+                    var nowDate = new Date();
+                    if (i == nowDate.getDate() && calendar.month == nowDate.getMonth() && calendar.year == nowDate.getFullYear()) {
+                        //    將當期元素的id設定為today
+                        calendar.dayTable[i + fristDay - 1].id = "today";
+                    }
+                }
+            },
+            // 獲取本月份的天數
+            getDateLen(year, month) {
+                //獲取下個月的第一天
+                var nextMonth = new Date(year, month + 1, 1);
+                // 設定下月第一天的小時-1，也就是上個月最後一天的小時數，隨便減去一個值不要超過24小時
+                nextMonth.setHours(nextMonth.getHours() - 1);
+                //獲取此時下個月的日期,就是上個月最後一天.
+                return nextMonth.getDate();
+            },
+            // 獲取本月第一天為星期幾。
+            getFristDay: function (year, month) {
+                var fristDay = new Date(year, month, 1);
+                return fristDay.getDay();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table id="calendar">
+        <tr>
+            <!-- 向左箭頭 -->
+            <th class="poin">&lt;&lt;</th>
+            <!-- 年月 -->
+            <th id="title" colspan="5"></th>
+            <!-- 向右箭頭 -->
+            <th class="poin">&gt;&gt;</th>
+        </tr>
+        <tr id="days">
+            <th>日</th>
+            <th>一</th>
+            <th>二</th>
+            <th>三</th>
+            <th>四</th>
+            <th>五</th>
+            <th>六</th>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

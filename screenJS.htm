@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>width & height</title>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+window.onload = function() {
+   document.getElementById("btn1").onclick=showWH;
+   window.onresize=showWH;
+}
+function showWH() {
+var str="<br />";
+str += "screen.width: "+screen.width+"<br />";
+str += "screen.height: "+screen.height+"<br /><br />";
+str += "screen.availWidth: "+screen.availWidth+"<br />";
+str += "screen.availHeight: "+screen.availHeight+"<br /><br />";
+str += "screen.colorDepth: "+screen.colorDepth+"<br /><br />";
+str += "document.documentElement.clientWidth: "+document.documentElement.clientWidth+"<br />";
+str += "document.documentElement.clientHeight: "+document.documentElement.clientHeight+"<br />";
+document.getElementById("content").innerHTML = str;
+}
+
+</script>
+</head>
+<body>
+<input id="btn1" type="button" value="Width & Height" />
+<div id="content"></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel ="stylesheet" href="test.css">
+<script type="text/javascript">
+var examArr = ["國文", "英文", "數學"];
+var arrStud = [];  // array as object
+arrStud["99210305"] = [57, 68, 95];
+arrStud["99210307"] = [86, 78, 95];
+arrStud["99213302"] = [45, 87, 23];
+arrStud["99435201"] = [78, 56, 98];
+arrStud["99205187"] = [67, 51, 45];
+arrStud["99235102"] = [98, 34, 76];
+arrStud["98675432"] = [65, 87, 43];
+window.onload = function() {
+    var tbl = "<table><caption>成績表</caption>";
+    tbl += "<tr><th>學號</th>";
+    for (let i = 0; i<examArr.length; i++) {
+        tbl += "<th>" + examArr[i] + "</th>";
+    }
+    tbl += "<th>成績</th></tr>";
+    for (let sid in arrStud) {
+        tbl += "<tr>";
+        tbl += "<td>" + sid + "</td>"; // 輸出學號
+        var score = 0;
+        for (let i = 0; i < arrStud[sid].length; i++) {
+            score += arrStud[sid][i];
+            tbl += "<td>" + arrStud[sid][i] + "</td>"; // 輸入學生的各科成績
+        }
+        tbl += "<td>" + score + "</td>";
+        tbl += "</tr>";
+    }
+    tbl += "</table>";
+    document.getElementById("cont").innerHTML = tbl;
+}
+</script>
+<body>
+<div id="cont"></div>
+</body>
+</html>
+<!--最後完成日期:2020年05月04日-->

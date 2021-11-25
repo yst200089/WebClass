@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>JavaScript Examples</title>
+<style type="text/css">
+body {
+background: linear-gradient(to right, #000, #030, #000);
+}
+#content {
+background-color: ivory;
+width: 800px;
+margin: 20px auto;
+padding: 20px;
+border: 3px solid #ccc;
+}
+#sp1 {
+color: DarkGreen;
+}
+#tbl1 {
+margin: 10px auto;
+width: 600px;
+border: 2px solid orange;
+}
+#tbl1 tr {
+height: 30px;
+}
+#tbl1 td {
+border: 2px solid green;
+}
+</style>
+<script type="text/javascript">
+//var name, title, gender, isMarried;
+
+/* name = "Mary";
+gender = "F";
+isMarried = false;
+if (gender == "M") {
+   title = "先生";
+} else if (isMarried) {
+   title = "女士"
+} else {
+   title = "小姐";
+}*/
+
+/* var today, wDay;
+today = new Date();
+wDay = today.getDay();
+switch (wDay) {
+   case 0:
+      dayname = "日";
+      break;
+   case 1:
+      dayname = "一";
+      break;
+   case 2:
+      dayname = "二";
+      break;
+   case 3:
+      dayname = "三";
+      break;
+   case 4:
+      dayname = "四";
+      break;
+   case 5:
+      dayname = "五";
+      break;
+   case 6:
+      dayname = "六";
+      break;
+   default :
+      dayname = "錯誤";
+}*/
+
+//var myObj = {name:"John", age:30, city: "New YorK"};
+// 隨機抽樣
+var num = [];
+for (let i=0; i<6; i++) {
+    num.push(my(....));
+}
+var arrNum = [100, 2, 56, 7, 4, 3000];
+arrNum.sort(byNumAsc); // 排序
+window.onload=function() {
+   // document.getElementById("p1").innerHTML = name + title + "您好！";
+   // document.getElementById("p1").innerHTML = "今天星期" + dayname;
+   // document.getElementById("hh1").innerHTML = arrNum;
+   document.getElementById("hh1").innerHTML = arrNum;
+}
+// 由小到大
+function byNumAsc(a, b) {
+    return a-b;
+}
+function myrandom() {
+    // 未完成
+}
+
+</script>
+</head>
+<body>
+    <div id="content">
+        <h1 id="hh1">Heading 1</h1>
+        <p id="p1" >There is a <span id="sp1">span</span> and a paragraph here.</p>
+        <table id="tbl1">
+            <caption>Table Caption</caption>
+            <tr><td> </td><td> </td></tr>
+            <tr><td> </td><td> </td></tr>
+        </table>
+        <br/>
+        <form id="f1" method="post" action="http://ycchen.im.ncnu.edu.tw/join.php">
+            <input type="text" id="txt1" name="txt1">
+                <input type="submit">
+                    <input type="reset"><br/><br/>
+        </form>
+        <button id="btn1">Button 1</button>
+    </div>
+</body>
+</html>

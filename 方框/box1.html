@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Box Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body {
+    margin: 0px; /* 外框:元素間距 */
+    border: 0px; /* 中框:邊框 */
+    padding: 0px; /* 內框:內距(框到內容的距離) */
+    background-image: url(rule2.png); /* 內容:長寬 */
+    box-sizing:border-box;/*??*/
+}
+/*border-width:邊框厚度*/
+/*border-color:邊框顏色*/
+/*border-style:邊框樣式*/
+/*border:厚度、顏色、樣式同時設定*/
+h1 {
+    width: 600px;/*內容寬度*/
+    margin: 50px auto; /* 元素置中 => margin-left:auto & margin-right:auto */
+    border: 30px groove indianred;
+    border-right: 30px groove oldlace;
+    border-left: 30px groove oldlace;
+    padding: 50px;
+    /* 左上圓角(單獨) */
+    /* border-top-left-radius: 50px; */
+    /* 圓角(全部):左上、右上、右下、左下(4角)/左上、右上左下、右下(3角) */
+    border-radius: 50px 50px 10px 10px;
+    /* 圓圈 */
+    /* border-radius: 50%; */
+}
+div#d1 {
+    font-size:40px;
+    margin:40px;
+    border:20px groove #630;
+    padding:60px;
+    background-color: white;
+    float:left;
+}
+div#d2 {
+    width: 210px;
+    font-size:40px;
+    margin:40px;
+    border:20px groove #630;
+    padding:60px;
+    background-color: white;
+    float:left;
+}
+</style>
+</head>
+<body>
+    <h1>Photo</h1>
+    <div id="d1"><img src="lake1.png" alt="Sun Moon Lake 1" width="300" /></div>
+    <div id="d2"><img src="lake2.png" alt="Sun Moon Lake 2" width="210" /></div>
+</body>
+</html>

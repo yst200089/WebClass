@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+#main {
+width: 900px;
+margin: 0px auto;
+line-height: 28pt;
+font-size: 16pt;
+}
+legend {
+font-weight: bold;
+color: red;
+}
+select, button {
+vertical-align:middle;
+font-size: 14pt;
+font-family: times new roman;
+}
+input[type=submit],input[type=reset],input[type=button],input[type=image],button {
+font-family: times new roman;
+font-size:14pt;
+vertical-align:middle;
+}
+h2 {
+text-align:center;
+color:darkgreen;
+}
+</style>
+<title>表單</title>
+</head>
+<body>
+<div id="main">
+<h2>HTML5 Form Elements</h2>
+<form id="join" action="http://ycchen.im.ncnu.edu.tw/join.php" method="post" enctype="multipart/form-data">
+<fieldset>
+<legend>input example</legend>
+User Name: <input type="text" id="uid" name="uid" size="10" maxlength="20" placeholder="Your id" /><br />
+Password:
+<input type="password" id="pwd" name="pwd" size="12" maxlength="20" value="mypwd" /><br />
+Comments: <br/><textarea  id="cmts" name="cmts" cols="40" rows="5"></textarea> <br />
+Datalist: <input list="browList" name="browser"> <br/>
+<datalist id="browList">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+ID Card Number:(pattern) <input type="text" name="cid" pattern="[A-Z][1-2][0-9]{8}" /> (Examples: M146976882, B230020327)<br/>  
+E-mail: <input type="email" name="email"> <br/>
+Number/step: <input type="number" name="points" step="5"> <br/>
+Date: <input type="date" id="dte" name="dte" /> (chrome only) <br/>
+Range: <input type="range" name="range1" min="0" max="100" value="30" /> (0..100) <br/>
+Color: <input type="color" name="clr" value="#00ffff" /> <br/>
+Upload pdf file:  <input type="file" id="pdf" name="pdf" />
+</fieldset>
+<fieldset>
+<legend>checkbox & radio example</legend>
+Members: <input type="checkbox" id="yahoo" name="mbrs[]" value="yahoo" /> Yahoo!
+<input type="checkbox" id="google" name="mbrs[]" value="google" checked /> Google
+<input type="checkbox" id="youtube" name="mbrs[]" value="youtube" checked /> Youtube<br/>
+Members: <input type="checkbox" id="yahoo" name="yahoo" value="yahoo" /> Yahoo!
+<input type="checkbox" id="google" name="google" value="google" checked /> Google
+<input type="checkbox" id="youtube" name="youtube" value="youtube" /> Youtube<br/>
+Payment:
+<input type="radio" id="pay" name="pay" value="Visa"  checked /> Visa
+<input type="radio" id="pay" name="pay" value="Master" /> Master
+<input type="radio" id="pay" name="pay" value="JCB" /> JCB <br />
+</fieldset>
+<fieldset>
+<legend>select/option example</legend>
+Year:
+<select id="year" name="year">
+<option>2009</option>
+<option value="2010">2010</option>
+<option>2011</option>
+<option selected>2012</option>
+</select>
+Month: <select name="month">
+<option>Jan.</option>
+<option>Feb.</option>
+<option>Mar.</option>
+<option>Apr.</option>
+</select><br />
+Web Technologies: 
+<select id="wts" name="wts[]" size="5" multiple >
+<option selected>HTML</option>
+<option>XHTML</option>
+<option>CSS</option>
+<option selected>JavaScript</option>
+<option>ASP</option>
+<option>PHP</option>
+</select>
+</fieldset>
+<fieldset>
+<legend>GET/POST Method</legend>
+get: <input type="submit" value="OK (get)" formmethod="get" />, post: <input type="submit" value="OK (post)" formmethod="post" /> <br/>
+</fieldset>
+<fieldset>
+<legend>submit/reset/button example</legend>
+Submit: <input type="submit" />
+<input type="submit" value="OK" /> <br/>
+Reset: <input type="reset" />
+<input type="reset" value="Clear" /> <br/>
+Input(type=button): <input type="button" value="Press this button" />
+<br />
+Image Button: <input type="image" src="button-next.png" alt="OK" /> <br/>
+Button: <button type="reset">
+<img src="r1.gif" alt="reset" title="reset" width="34" /><br />
+Reset 
+</button>
+</fieldset>
+<fieldset>
+<legend>label example</legend>
+Without label: <input type="radio" name="sex" value="m" />Male 
+<input type="radio" name="sex" value="f"/>Female
+<hr/>
+With label: <label><input type="radio" name="sex1"  value="m1" />Male</label> 
+<label><input type="radio" name="sex1"  value="f1" />Female</label>
+</fieldset>
+</form>
+Progress: <progress value="22" max="100" name="prgrs"></progress> ("progress" is not an input element.)<br/>
+</div>
+</body>
+</html>

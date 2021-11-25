@@ -1,0 +1,152 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>網頁標題</title>
+  <style type="text/css">
+    body {
+      width: 600px;
+      margin: 10px auto
+    }
+
+    #content {
+      color: ivory;
+      background-color: indianred;
+      border: 2px solid #ccc;
+      padding: 20px
+    }
+
+    table {
+      margin: 10px auto;
+      border: 1px solid #ccc;
+      width: 400px;
+    }
+
+    td {
+      text-align: right;
+      padding: 5px 10px
+    }
+
+    td+td {
+      text-align: left
+    }
+
+    #grade {
+      margin: 40px auto;
+    }
+
+    #grade li {
+      display: inline-block;
+      width: 120px;
+      text-align: center;
+      padding: 5px 0px;
+      background-color: #999;
+    }
+
+    #g1 {
+      border-bottom: 10px solid #66f;
+    }
+
+    #g2 {
+      border-bottom: 10px solid #6f6;
+    }
+
+    #g3 {
+      border-bottom: 10px solid yellow;
+    }
+
+    #g4 {
+      border-bottom: 10px solid orange;
+    }
+
+    .sel {
+      background-color: white !important;
+      color: crimson;
+      font-weight: bold;
+      border-radius: 30px;
+    }
+
+    #bmi {
+      color: crimson;
+      font-weight: bold;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function () {
+      $("calBtn").onclick = calBMI;
+      $("f1").onreset = frmReset; // 按了reset呼叫自己的函數
+    }
+    function frmReset(){
+      $("bmi").innerHTML = "";
+      clr();
+    }
+    function calBMI() {
+      clr();
+      var h = $("hh").value;
+      var w = $("ww").value;
+      var bmi = (w / (h * h) * 100 * 100).toFixed(1); // 取到小數點一位
+      $("bmi").innerHTML = bmi;
+      var gd;
+      if (bmi < 18.5) {
+        gd = "g1";
+      }
+      else if (bmi < 24) {
+        gd = "g2";
+      }
+      else if (bmi < 27) {
+        gd = "g3";
+      }
+      else {
+        gd = "g4";
+      }
+      $(gd).classList.add("sel");
+    }
+    function $(id) {
+      return document.getElementById(id);
+    }
+    function clr() {
+      for (var i = 1; i < 5; i++) {
+        $("g"+i).classList.remove("sel");
+      }
+    }
+</script>
+</head>
+
+<body>
+  <div id="content">
+    <form name="f1">
+      <table>
+        <tr>
+          <td>身高(cm):</td>
+          <td><input type="text" id="hh" /></td>
+        </tr>
+        <tr>
+          <td>體重(Kg):</td>
+          <td><input type="text" id="ww" /></td>
+        </tr>
+        <tr>
+          <td>BMI:</td>
+          <td><span id="bmi"></span></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align:center">
+            <input type="button" id="calBtn" value="計算BMI" />
+            <input type="reset" /></td>
+        </tr>
+      </table>
+    </form>
+    <ul id="grade">
+      <li id="g1">體重過輕</li>
+      <li id="g2">標準</li>
+      <li id="g3">過重</li>
+      <li id="g4">肥胖</li>
+    </ul>
+  </div>
+</body>
+
+</html>
+<!--最後完成日期:2020年05月04日-->

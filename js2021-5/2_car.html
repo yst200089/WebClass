@@ -1,0 +1,55 @@
+<!--學號:108213052-->
+<!--姓名:楊心慈-->
+<!-- 汽車跑動 -->
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>汽車跑動</title>
+   <style type="text/css">
+      .car {
+         position: absolute;
+      }
+   </style>
+   <script type="text/javascript">
+      var w = window.innerWidth; // 取得瀏覽器寬度
+      var h = window.innerHeight;// 取得瀏覽器高度
+      var car;
+      window.onload = function () {
+         car = $("car1");
+         car.style.left = (w-car.width) + "px"; // 不讓車子超出畫面
+         car.style.top = (0.5*h-0.5*car.height) + "px"; // 讓車子在高度的中間
+         car.onclick = run;
+      };
+      function run() {
+         // parseInt 轉成整數
+         var lft = parseInt(car.style.left); // 取得現在位置
+         lft -= 10;
+         // if ((lft+car.width) < 0) { // 左出右近
+            //    lft = w;
+         // }
+         car.style.left = lft + "px";
+         if (lft > 0) { // 到最左邊停止
+            window.setTimeout("run()", 10); // 過多少時間再執行一次
+         }
+      }
+      function getCStyle(id, property) {
+         var cssObj = window.getComputedStyle($(id), null);
+         return cssObj.getPropertyValue(property);
+      }
+      function $(id) {
+         return document.getElementById(id);
+      }
+   </script>
+</head>
+
+<body>
+   <div id="cont">
+      <img id="car1" src="car.png" class="car" />
+   </div>
+</body>
+
+</html>
+<!--最後完成日期:2021年05月18日-->

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>form check</title>
+<style type="text/css">
+body {width: 600px; margin:10px auto}
+#content {color:ivory; background-color:DarkOliveGreen; border:2px solid #ccc; padding:20px}
+table {margin: 10px auto; border: 1px solid #ccc; width:400px;}
+td {text-align:right; padding:5px 10px}
+td+td {text-align: left}
+</style>
+<script type="text/javascript">
+var arrArea=new Array();
+arrArea["台灣"]=new Array("台北", "台中", "台南", "高雄");
+arrArea["日本"]=new Array("東京", "大阪", "京都", "福岡", "札幌");
+arrArea["東南亞"]=new Array("雅加達","吉隆坡", "檳城","新加坡", "曼谷", "河內", "胡志明市");
+window.onload=function() {
+areaInit();
+showCity();
+document.getElementById("f1").onsubmit=join;
+document.getElementById("f1").onreset=init;
+document.getElementById("area").onchange=showCity;
+};
+function init() {
+   areaInit();
+   showCity();
+}
+function areaInit() {
+var area=document.getElementById("area");
+for (cty in arrArea) {
+    var opt=new Option();
+	opt.text=cty;
+	area.add(opt);
+}
+area.selectedIndex=0;
+}
+function showCity() {
+  var areaEle=document.getElementById("area");
+  var area=areaEle.options[areaEle.selectedIndex].text;
+  clearCity();
+  for (var i=0;i<arrArea[area].length;i++) {
+	    var opt=new Option();
+		opt.text=arrArea[area][i];
+		city.add(opt);
+  }
+}
+
+function clearCity() {
+  var city=document.getElementById("city");
+  var noOp=city.options.length
+  for (var i=0;i<noOp;i++) {
+     city.remove(0);
+  }
+}
+function join() {
+  var email= document.getElementById("email");
+  if (email.value.indexOf("@")==-1) {
+     alert("Wrong e-mail!");
+	 email.focus();
+	 return false;
+  }
+  var pw1= document.getElementById("pwd1").value;
+  var pw2= document.getElementById("pwd2").value;
+  if (pw1.length<6) {
+     alert("password too short!");
+	 document.getElementById("pwd").focus();
+	 return false;
+  }
+  if (pw1 != pw2) {
+     alert("password inconsistent!");
+	 document.getElementById("pwd").focus();
+	 return false;
+  }
+  var age = document.f1.age.value;
+  if (age=="" || isNaN(age)) {
+     alert("wrong age!");
+	 document.f1.age.focus();
+	 return false;
+  }
+}
+</script>
+</head>
+<body>
+<div id="content">
+<form id="f1" name="f1" method="post" action="http://ycchen.im.ncnu.edu.tw/join.php">
+<table>
+<tr><td>E-mail:</td><td><input type="text" id="email" name="email" /></td></tr>
+<tr><td>密碼:</td><td><input type="password" id="pwd1" name="pwd" /></td></tr>
+<tr><td>密碼確認:</td><td><input type="password" id="pwd2" /></td></tr>
+<tr><td>年齡:</td><td><input type="text" name="age" size="4" /></td></tr>
+<tr><td>服務據點:</td><td>
+區域: <select id="area" name="area"></select>
+城市: <select id="city" name="city"></select></td></tr>
+<tr><td colspan="2" style="text-align:center"><input type="submit" /> <input type="reset" /></td></tr>
+</table>
+</form>
+</div>
+</body>
+</html>

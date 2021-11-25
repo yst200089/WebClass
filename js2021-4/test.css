@@ -1,0 +1,29 @@
+body {
+    font-family: Arial;
+    background-color:rgba(230, 230, 250, 0.637);
+}
+#cont {
+    width:900px;
+    margin:50px auto;
+}
+table {
+    border: 2px double rgb(124, 76, 76);
+    margin:50px auto;
+    width:600px;
+    background-color: white;;
+}
+caption {
+    margin:20px auto;
+    font-size:20pt;
+    color: brown;
+}
+th, td {
+    border: 1px solid rgb(146, 68, 68);
+    padding: 2px 4px;
+    text-align:center
+}
+th {
+    text-align:center; 
+    background-color: indianred;
+    color: white
+}
